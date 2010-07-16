@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Desc:</b>
+  <%= @task.desc %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @task.status %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @task.due_date %>
+</p>
+
+<p>
+  <b>Estimated hours:</b>
+  <%= @task.estimated_hours %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @task.url %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%= @task.order %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @task.parent_id %>
+</p>
+
+<p>
+  <b>Parent type:</b>
+  <%= @task.parent_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

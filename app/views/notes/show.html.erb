@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Desc:</b>
+  <%= @note.desc %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%= @note.order %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @note.parent_id %>
+</p>
+
+<p>
+  <b>Parent type:</b>
+  <%= @note.parent_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

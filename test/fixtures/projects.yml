@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  url: MyString
+  status: MyString
+  due_date: 2010-07-15
+  order: 1
+  company_id: 1
+
+two:
+  title: MyString
+  url: MyString
+  status: MyString
+  due_date: 2010-07-15
+  order: 1
+  company_id: 1
