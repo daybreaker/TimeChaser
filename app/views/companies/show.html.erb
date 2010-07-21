@@ -13,3 +13,11 @@
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+
+<br />
+
+<%  @company.projects.each do |project| %>
+	<%= project.title %><br />
+<% end %>
+
+<%= link_to 'Add Project', new_company_project_path(@company) %>

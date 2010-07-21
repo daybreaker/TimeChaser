@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20100716013943) do
   create_table "notes", :force => true do |t|
     t.text     "desc"
     t.integer  "order"
-    t.integer  "parent_id"
-    t.string   "parent_type"
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20100716013943) do
     t.integer  "estimated_hours"
     t.string   "url"
     t.integer  "order"
-    t.integer  "parent_id"
-    t.string   "parent_type"
+    t.integer  "taskable_id"
+    t.string   "taskable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

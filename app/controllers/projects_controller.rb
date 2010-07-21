@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   # GET /projects.xml
   def index
     @projects = Project.all
-
+    @company = 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @projects }
@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.xml
   def new
+    @company = Company.find(params[:company_id])
     @project = Project.new
 
     respond_to do |format|
@@ -40,11 +41,12 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.xml
   def create
-    @project = Project.new(params[:project])
+    @company = Company.find(params[:company_id])
+    @project = Project.new(params[:project].merge(:company => @company))
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
+        format.html { redirect_to(([@company, @project]), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }

@@ -1,13 +1,13 @@
 TimeChaser::Application.routes.draw do |map|
-  resources :hours
-
-  resources :notes
-
-  resources :tasks
-
-  resources :projects
-
-  resources :companies
+  resources :companies do
+    resources :projects do
+      resources :notes
+      resources :tasks do
+        resources :hours
+      end
+    end
+  end
+        
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

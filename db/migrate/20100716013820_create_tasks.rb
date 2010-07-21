@@ -7,9 +7,8 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :estimated_hours
       t.string :url
       t.integer :order
-      t.integer :parent_id
-      t.string :parent_type
-
+      
+      t.references :taskable, :polymorphic => true
       t.timestamps
     end
   end

@@ -3,9 +3,8 @@ class CreateNotes < ActiveRecord::Migration
     create_table :notes do |t|
       t.text :desc
       t.integer :order
-      t.integer :parent_id
-      t.string :parent_type
 
+      t.references :noteable, :polymorphic => true
       t.timestamps
     end
   end
