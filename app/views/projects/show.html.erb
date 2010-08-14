@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @project.title %></h1>
 <p>
-  <b>Title:</b>
-  <%= @project.title %>
-</p>
-
-<p>
-  <b>Url:</b>
+  <strong>Url:</strong>
   <%= @project.url %>
 </p>
 
 <p>
-  <b>Status:</b>
+  <strong>Status:</strong>
   <%= @project.status %>
 </p>
 
 <p>
-  <b>Due date:</b>
+  <strong>Due date:</strong>
   <%= @project.due_date %>
 </p>
 
 <p>
-  <b>Order:</b>
+  <strong>Order:</strong>
   <%= @project.order %>
 </p>
 
 <p>
-  <b>Company:</b>
+  <strong>Company:</strong>
   <%= @project.company_id %>
 </p>
 
 
-<%= link_to 'Edit', edit_company_project_path(@project) %> |
+<%= link_to 'Edit', edit_company_project_path(@company, @project) %> |
 <%= link_to 'Back', company_path(@project.company) %>
+
+<h2>Tasks &amp; Notes</h2>
+<ul>
+<%= render @project.items %>
+</ul>
+<%= link_to 'New Task', new_company_project_task_path(@company, @project) %>

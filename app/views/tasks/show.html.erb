@@ -31,15 +31,25 @@
 </p>
 
 <p>
-  <b>Parent:</b>
-  <%= @task.parent_id %>
+  <b>Parent ID:</b>
+  <%= @task.taskable_id %>
 </p>
 
 <p>
   <b>Parent type:</b>
-  <%= @task.parent_type %>
+  <%= @task.taskable_type %>
 </p>
 
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_company_project_task_path(@company, @project, @task) %> |
+<%= link_to 'Back', (@task.subtask?) ? company_project_task_path(@company, @project, @task.taskable) : company_project_path(@company, @project) %>
+
+<%  unless @task.subtask? %>
+	<% unless @task.items.blank? %>
+		<h2>Tasks &amp; Notes</h2>
+		<ul>
+		<%= render @task.items %>
+		</ul>
+	<% end %>
+	<%= link_to 'New Task', new_company_project_task_path(@company, @project, {:is_subtask => 'true', :parent_task_id => @task.id}) unless @task.subtask?%>
+<% end %>

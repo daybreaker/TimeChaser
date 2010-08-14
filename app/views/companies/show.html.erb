@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @company.name %>
+  <h1><%= @company.name %></h2>
 </p>
 
 <p>
@@ -14,10 +13,9 @@
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
 
-<br />
-
-<%  @company.projects.each do |project| %>
-	<%= project.title %><br />
-<% end %>
+<h2>Projects:</h2>
+<ul>
+<%= render :partial => @company.projects %>
+</ul>
 
 <%= link_to 'Add Project', new_company_project_path(@company) %>

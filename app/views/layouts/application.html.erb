@@ -3,12 +3,30 @@
 <head>
   <title>TimeChaser</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "jquery-1.4.2.min","rails","application" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="container">
+		<div id="left">
+			<h1>Companies</h1>
+			<form id="company_select">
+				<%= params[:choose_company] %>
+				<%= select_tag "choose_company", options_from_collection_for_select(companies, 'id','name',(params[:choose_company].nil?) ? '' : params[:choose_company]), {:include_blank => "- Select Company -"} %>
+			</form>
+			<br />
+			<%= link_to 'New Company', new_company_path %>
+			<br />
+			<div id="project_list">
+				<ul>
+					<%= render @company.projects if @company %>
+				</ul>
+				<%= link_to 'New Project', new_company_project_path(@company) if @company %>
+			</div>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
