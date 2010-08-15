@@ -9,19 +9,21 @@
 <body>
 	<div id="container">
 		<div id="left">
-			<h1>Companies</h1>
-			<form id="company_select">
-				<%= params[:choose_company] %>
-				<%= select_tag "choose_company", options_from_collection_for_select(companies, 'id','name',(params[:choose_company].nil?) ? '' : params[:choose_company]), {:include_blank => "- Select Company -"} %>
-			</form>
-			<br />
-			<%= link_to 'New Company', new_company_path %>
-			<br />
+			<h1>TIME CHASER</h1>
+			<div id="select_company" class="m_wrapper">
+				<ul style="display:none">
+					<li><a href="javascript://" class="available_company" id="new">>> New Company</a></li>
+					<% companies.each do |x| %>
+						<li><a href="javascript://" id="select_company_<%= x.id %>" class="available_company"><%= x.name %></a></li>
+					<% end %>
+				</ul>
+				<div id="selected_company" class="m_itemMain m_up"><%= (@company) ? @company.name : "Select a Company" %></div>
+			</div>
 			<div id="project_list">
 				<ul>
 					<%= render @company.projects if @company %>
 				</ul>
-				<%= link_to 'New Project', new_company_project_path(@company) if @company %>
+				<%= link_to 'New Project', new_company_project_path(@company) if @company && @company.id  %>
 			</div>
 		</div>
 		<div id="content">
