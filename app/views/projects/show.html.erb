@@ -1,37 +1,19 @@
+<div id="project_info_bar">
+	<h1><%= @project.title %></h1>	
+	<%= @project.url %>
+	<%= @project.status %>
+	<%= @project.due_date %>
+	<%= link_to 'New Task', new_company_project_task_path(@company, @project) %>
+</div>
 <p id="notice"><%= notice %></p>
 
-<h1><%= @project.title %></h1>
-<p>
-  <strong>Url:</strong>
-  <%= @project.url %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @project.status %>
-</p>
+<% # link_to 'Edit', edit_company_project_path(@company, @project) %>
+<% # link_to 'Back', company_path(@project.company) %>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @project.due_date %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @project.order %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @project.company_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_company_project_path(@company, @project) %> |
-<%= link_to 'Back', company_path(@project.company) %>
-
-<h2>Tasks &amp; Notes</h2>
-<ul>
-<%= render @project.items %>
-</ul>
-<%= link_to 'New Task', new_company_project_task_path(@company, @project) %>
+<div id="task_list">
+	<ul>
+	<%= render @project.items %>
+	</ul>
+	
+</div>

@@ -3,13 +3,14 @@
 <head>
   <title>TimeChaser</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery-1.4.2.min","rails","application" %>
+  <%= javascript_include_tag "jquery-1.4.2.min","rails","application","glossy" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 	<div id="container">
 		<div id="left">
-			<h1>TIME CHASER</h1>
+			<%= image_tag 'logo.jpg', {:class=>"glossy iradius50"} %>
+			<h1>Company</h1>
 			<div id="select_company" class="m_wrapper">
 				<ul style="display:none">
 					<li><a href="javascript://" class="available_company" id="new">>> New Company</a></li>
@@ -19,15 +20,19 @@
 				</ul>
 				<div id="selected_company" class="m_itemMain m_up"><%= (@company) ? @company.name : "Select a Company" %></div>
 			</div>
+			<h1>Projects</h1>
 			<div id="project_list">
 				<ul>
+					<%  if @company && @company.id %><li><%= link_to '>> New Project', new_company_project_path(@company) %></li><% end %>
 					<%= render @company.projects if @company %>
 				</ul>
-				<%= link_to 'New Project', new_company_project_path(@company) if @company && @company.id  %>
 			</div>
 		</div>
 		<div id="content">
 			<%= yield %>
+			<div id="hours">
+				Hours?
+			</div>
 		</div>
 	</div>
 </body>

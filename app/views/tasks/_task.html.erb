@@ -1,1 +1,3 @@
-<li><%= link_to task.id.to_s, company_project_task_path(@company, @project, task) %></li>
+<li id="task_<%= task.id %>">
+	<span class="task_desc"><%= task.desc %></span>
+</li>

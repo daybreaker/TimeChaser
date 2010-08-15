@@ -1,5 +1,7 @@
 body{
 	height: 100%;
+	width:100%;
+	background: #e6e6e6;
 }
 
 body{
@@ -12,60 +14,192 @@ h1{
 }
 
 #container{
-
+	width:100%;
+	float:left;
 }
 
 #left{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width:200px;
-	background: #006;
-	height: 100%;
+	float:left;
+	padding-left:20px;
+	width:250px;
+}
+
+#left canvas{
+	margin: 15px 0 10px 25px;
 }
 
 #left h1{
-	color: white;
+	color:#222;
 }
 
 #content{
-	position: absolute;
-	top: 0;
-	left: 200px;
+	float:left;
+	width: 75%;
+}
+
+#project_info_bar {
+	margin: 15px 0 0 25px;
+	padding: 5px 0 5px 15px;
+	width: 100%;
+	height: 70px;
+	display: block;
+  background:
+    -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(.12, rgb(146,158,158)),
+    color-stop(.66, rgb(210,210,230))
+    );
+  background:
+    -moz-linear-gradient(
+    center bottom,
+    rgb(146,158,158) 12%,
+    rgb(210,210,230) 66%
+    );
+  box-shadow:0px 0px 2px #333 inset;
+  -moz-border-radius:15px;
+  border-radius:15px;
+}
+
+#project_info_bar h1{
+	font-family: "Myriad Pro", "Trebuchet MS", Helvetica, sans-serif;
+	float:left;
+	font-size: 46px;
+	padding-top: 15px;
+}
+
+#task_list{
+	width: 70%;
+	float:left;
+	margin: 25px 0 0 25px;
+}
+
+#task_list ul{
+	width: 95%;
+}
+
+#task_list ul li {
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px black solid;
+	min-height: 50px;
+	display:block;
+	width: 95%;
+	background:
+    -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(.12, rgb(235,235,235)),
+    color-stop(.66, rgb(250,250,250))
+    );
+  background:
+    -moz-linear-gradient(
+    center bottom,
+    rgb(235,235,235) 12%,
+    rgb(250,250,250) 66%
+    );
+  -moz-border-radius:11px;
+  border-radius:11px;
+}
+
+#hours{
+	float:right;
+	width: 30%;
+	min-height: 450px;
+	margin-right:-25px;
+	margin-top:20px;
+	padding:0;
 }
 
 #project_list{
-	margin-top: 20px;
+	clear: both;
 }
+
+#project_list ul{
+  width:230px;
+  font-family: "Myriad Pro", "Trebuchet MS", Helvetica, sans-serif;
+  text-transform:uppercase;
+  font-size: 14px;
+  text-align:left;
+  text-indent:10px;
+  color:#333;
+  text-shadow:1px 1px 1px #000;
+}
+
+#project_list ul li{
+	margin-top: 10px;
+}
+
+#project_list ul li a{
+  text-decoration:none;
+  cursor:pointer;
+  display:block;
+  padding:3px 0px;
+  height:40px;
+  line-height:40px;
+  text-indent:10px;
+  letter-spacing:1px;
+  color:#262626;
+  border: 1px solid black;
+  text-shadow:1px 1px 1px #999;
+	background:
+    -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(.12, rgb(235,235,235)),
+    color-stop(.66, rgb(250,250,250))
+    );
+  background:
+    -moz-linear-gradient(
+    center bottom,
+    rgb(235,235,235) 12%,
+    rgb(250,250,250) 66%
+    );
+  -moz-border-radius:11px;
+  border-radius:11px;
+}
+
+#project_list ul li a:hover, #project_list ul li a.current{
+  background:#525252;
+  color:#fff;
+  box-shadow:0px 0px 3px #ddf inset;
+}
+
+
+
 
 /**  Company Select Box **/
 
 .m_wrapper{
-  height:40px;
-  line-height:40px;
-  width:199px;
+  height:45px;
+  line-height:45px;
+  width:229px;
   float:left;
   clear:both;
   position:relative;
   font-family: "Myriad Pro", "Trebuchet MS", Helvetica, sans-serif;
-  font-size:12px;
+  font-size:14px;
   text-transform:uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
 }
+
 .m_itemMain{
-  font-size: 14px;
-  color:#fff;
+  padding-top: 3px;
+  font-size: 18px;
+  color:#000;
   z-index:10;
-  border:1px solid #000;
-  border-right: none;
-  background-color:#003;
+  border:1px solid #448;
+  background-color:#9999CC;
   background-repeat:no-repeat;
   background-position:95% 50%;
   cursor:pointer;
   text-align:left;
   text-indent:10px;
-  width:199px;
-  text-shadow:1px 1px 1px #000;
+  width:228px;
+  text-shadow:2px 2px 2px #ccc;
 }
 .m_down{
   background-image:url('/images/down.png');
@@ -79,15 +213,17 @@ h1{
   width:100%;
   position:absolute;
   top:0px;
-  left:200px;
+  left:230px;
   z-index: 200;
-  background:rgba(0, 0, 51, .9);
+  background:rgba(144, 144, 144, .8);
   max-height: 500px;
   overflow: auto;
   -moz-border-radius-topright:8px;
   border-top-right-radius:8px;
   -moz-border-radius-bottomright:8px;
   border-bottom-right-radius:8px;
+  -moz-border-radius-bottomleft:8px;
+  border-bottom-left-radius:8px;
 }
 
 .m_wrapper ul li a{
@@ -95,7 +231,7 @@ h1{
   cursor:pointer;
   display:block;
   padding:3px 0px;
-  line-height:30px;
+  line-height:40px;
   text-indent:10px;
   letter-spacing:1px;
   color:#ddd;

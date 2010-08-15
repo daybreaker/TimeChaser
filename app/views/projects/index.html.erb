@@ -1,6 +1,4 @@
 <ul>
-<% @projects.each do |project| %>
-    <li><%= link_to project.title, company_project_path(@company, project) %></li>
-<% end %>
+	<%  if @company && @company.id %><li><%= link_to '>> New Project', new_company_project_path(@company) %></li><% end %>
+	<%= render @company.projects if @company %>
 </ul>
-<%= link_to 'New Project', new_company_project_path %>
